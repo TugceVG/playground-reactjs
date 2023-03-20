@@ -6,7 +6,7 @@ export default class CategoryList extends Component {
         this.state = {
             categories: [
                 { categoryId: 1, categoryName: "Beverages" },
-                { categoryId: 2, categoryName: "Condiments" }]
+                { categoryId: 2, categoryName: "Condiments" }],
         }
     }
     render() {
@@ -14,10 +14,15 @@ export default class CategoryList extends Component {
             <div>
                 <h3> {this.props.info.title} </h3>
                 <ListGroup>
-                    {
-                        this.state.categories.map((category) => (<ListGroupItem key={category.categoryId}>{category.categoryName}</ListGroupItem>))
-                    }
+                    {this.state.categories.map((category) => (
+                        <ListGroupItem
+                            onClick={() => this.props.changeCategory(category)}
+                            key={category.categoryId}
+                        >
+                            {category.categoryName}
+                        </ListGroupItem>))}
                 </ListGroup>
+                <h4>{this.props.currentCategory}</h4>
             </div>
         )
     }
