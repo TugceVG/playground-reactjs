@@ -7,11 +7,21 @@ import { Col, Container, Row } from 'reactstrap';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentCategory: "" }
+    this.state = { currentCategory: "", products: [] }
   }
   changeCategory = category => {
     this.setState({ currentCategory: category.categoryName });
   }
+
+  getProducts = () => {
+    fetch("http://localhost:3000/products")
+      .then(response => response.json())
+      .then(data => this.setState({ products: data }));
+  };
+
+  componentDidMount() {
+    this.getProducts();
+  };
 
   render() {
     let productInfo = { title: "Product List" };
@@ -25,7 +35,7 @@ export default class App extends Component {
           </Row>
           <Row>
             <Col xs="3"><CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo} /></Col>
-            <Col xs="9"><ProductList currentCategory={this.state.currentCategory} info={productInfo} /></Col>
+            <Col xs="9"><ProductList products={this.state.products} currentCategory={this.state.currentCategory} info={productInfo} /></Col>
           </Row>
         </Container>
       </div>
