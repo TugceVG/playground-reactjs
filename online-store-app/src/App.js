@@ -5,16 +5,26 @@ import ProductList from './components/ProductList';
 import { Col, Container, Row } from 'reactstrap';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentCategory: "", products: [] }
-  }
+  // This declaration is the old generation
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { currentCategory: "", products: [] }
+  // }
+
+  // This declaration is the new so you don't have to put your state declaration in constructor
+  state = { currentCategory: "", products: [] }
+
   changeCategory = category => {
     this.setState({ currentCategory: category.categoryName });
+    this.getProducts(category.id);
   }
 
-  getProducts = () => {
-    fetch("http://localhost:3000/products")
+  getProducts = (categoryId) => {
+    let url = "http://localhost:3000/products";
+    if (categoryId) {
+      url += "?categoryId=" + categoryId;
+    }
+    fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ products: data }));
   };
