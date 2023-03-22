@@ -12,7 +12,7 @@ export default class App extends Component {
   // }
 
   // This declaration is the new so you don't have to put your state declaration in constructor
-  state = { currentCategory: "", products: [] }
+  state = { currentCategory: "", products: [], cart: [] }
 
   changeCategory = category => {
     this.setState({ currentCategory: category.categoryName });
@@ -29,6 +29,18 @@ export default class App extends Component {
       .then(data => this.setState({ products: data }));
   };
 
+  addToCart = (product) => {
+    let newCart = this.state.cart;
+    var addedItem = newCart.find(c => c.product.id === product.id);
+    if (addedItem) {
+      addedItem.quantity += 1;
+    } else {
+      newCart.push({ product: product, quantity: 1 });
+    }
+    this.setState({ cart: newCart });
+
+  }
+
   componentDidMount() {
     this.getProducts();
   };
@@ -40,10 +52,10 @@ export default class App extends Component {
       <div>
         {/* This Container and Row components come from reactstrap */}
         <Container>
-          <Navi />
+          <Navi cart={this.state.cart} />
           <Row>
             <Col xs="3"><CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo} /></Col>
-            <Col xs="9"><ProductList products={this.state.products} currentCategory={this.state.currentCategory} info={productInfo} /></Col>
+            <Col xs="9"><ProductList addToCart={this.addToCart} products={this.state.products} currentCategory={this.state.currentCategory} info={productInfo} /></Col>
           </Row>
         </Container>
       </div>
