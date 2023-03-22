@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoryList from './components/CategoryList';
-import Nav from './components/Nav';
+import Navi from './components/Navi';
 import ProductList from './components/ProductList';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -40,9 +40,7 @@ export default class App extends Component {
       <div>
         {/* This Container and Row components come from reactstrap */}
         <Container>
-          <Row>
-            <Nav />
-          </Row>
+          <Navi />
           <Row>
             <Col xs="3"><CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo} /></Col>
             <Col xs="9"><ProductList products={this.state.products} currentCategory={this.state.currentCategory} info={productInfo} /></Col>
