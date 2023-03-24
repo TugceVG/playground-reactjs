@@ -3,6 +3,7 @@ import CategoryList from './components/CategoryList';
 import Navi from './components/Navi';
 import ProductList from './components/ProductList';
 import { Col, Container, Row } from 'reactstrap';
+import alertify from 'alertifyjs';
 
 export default class App extends Component {
   // This declaration is the old generation
@@ -38,7 +39,7 @@ export default class App extends Component {
       newCart.push({ product: product, quantity: 1 });
     }
     this.setState({ cart: newCart });
-
+    alertify.success(product.productName + " added to cart!");
   }
 
   componentDidMount() {
