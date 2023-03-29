@@ -8,6 +8,8 @@ import Navi from './components/Navi';
 import ProductList from './components/ProductList';
 import NotFound from './components/NotFound';
 import CartList from './components/CartList';
+import FormDemo1 from './components/FormDemo1';
+import FormDemo2 from './components/FormDemo2';
 
 export default class App extends Component {
   // This declaration is the old generation
@@ -53,6 +55,7 @@ export default class App extends Component {
   removeFromCart = (product) => {
     let newCart = this.state.cart.filter((c) => c.product.id !== product.id);
     this.setState({ cart: newCart });
+    alertify.error(product.productName + " removed to cart!");
   }
 
   render() {
@@ -75,6 +78,8 @@ export default class App extends Component {
                 path="/cart"
                 element={<CartList cart={this.state.cart} removeFromCart={this.removeFromCart} />}
               />
+              <Route path="/form1" element={<FormDemo1 />} />
+              <Route path="/form2" element={<FormDemo2 />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Col>
