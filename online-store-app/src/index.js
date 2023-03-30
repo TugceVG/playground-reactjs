@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'alertifyjs/build/css/alertify.min.css';
 
-import './index.css';
-import App from './App';
+
+import App from './components/root/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
