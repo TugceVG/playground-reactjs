@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
 import { bindActionCreators } from "redux";
 import * as categoryActions from "../../redux/actions/categoryActions";
 
@@ -15,14 +15,17 @@ class CategoryList extends Component {
     render() {
         return (
             <div>
-                <h3>CategoryList {this.props.categories.length}</h3>
+                <h3>
+                    <Badge color="warning">
+                        Categories
+                    </Badge>
+                </h3>
                 <ListGroup>
                     {this.props.categories.map((category) => (
                         <ListGroupItem active={category.id === this.props.currentCategory.id ? true : false} onClick={() => this.selectCategory(category)} key={category.id}>
                             {category.categoryName}
                         </ListGroupItem>))}
                 </ListGroup>
-                <h5>Secili Kategori : {this.props.currentCategory.categoryName}</h5>
             </div>
         )
     }
