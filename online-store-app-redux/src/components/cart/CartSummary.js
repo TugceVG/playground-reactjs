@@ -10,10 +10,18 @@ import {
     NavLink,
     Badge,
 } from 'reactstrap';
+import alertify from "alertifyjs";
+import { Link } from 'react-router-dom';
 
 import * as cartActions from '../../redux/actions/cartActions';
 
 class CartSummary extends Component {
+
+    removeFromCart(product) {
+        this.props.actions.removeFromCart(product);
+        alertify.error(product.productName + "was removed from cart")
+    }
+
     renderEmpty() {
         return (
             <NavItem>
@@ -32,14 +40,14 @@ class CartSummary extends Component {
                     {
                         this.props.cart.map((cartItem) => (
                             <DropdownItem key={cartItem.product.id}>
-                                <Badge color="danger" onClick={() => this.props.actions.removeFromCart(cartItem.product)}>X</Badge>
+                                <Badge color="danger" onClick={() => this.removeFromCart(cartItem.product)}>X</Badge>
                                 {cartItem.product.productName}
                                 <Badge color="success">{cartItem.quantity}</Badge>
                             </DropdownItem>
                         ))}
 
                     <DropdownItem divider />
-                    <DropdownItem>Go to Cart</DropdownItem>
+                    <DropdownItem><Link to="/cart"> Go to Cart </Link></DropdownItem>
                 </DropdownMenu>
             </UncontrolledDropdown>
         )

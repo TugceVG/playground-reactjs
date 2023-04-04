@@ -1,22 +1,23 @@
-import React, { Component } from 'react'
-import { Container, Row, Col } from 'reactstrap'
-import CategoryList from '../categories/CategoryList'
-
+import React, { Component } from 'react';
+import { Container } from 'reactstrap';
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./Dashboard";
 import Navi from '../navi/Navi'
-import ProductList from '../products/ProductList'
-// import Dashboard from './Dashboard'
+import CartDetail from '../cart/CartDetail';
+import NotFound from '../common/NotFound';
 
 export default class App extends Component {
   render() {
     return (
       <Container>
         <Navi />
-        <Row>
-          <Col xs="3"><CategoryList /></Col>
-          <Col xs="9"><ProductList /></Col>
-        </Row>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/product" element={<Dashboard />} />
+          <Route path="/cart" element={<CartDetail />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Container>
     )
   }
 }
-
