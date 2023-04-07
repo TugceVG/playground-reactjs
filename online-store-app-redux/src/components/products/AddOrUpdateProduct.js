@@ -13,8 +13,10 @@ function AddOrUpdateProduct({ products, categories, getProducts, getCategories, 
         if (categories.length === 0) {
             getCategories();
         }
-        setProduct({ ...props.product })
-    }, [props.product]);
+        // setProduct({ ...props.product })
+        const selectedProduct = getProductById(products, productId);
+        setProduct(selectedProduct || { ...props.product });
+    }, [productId, products, props.product]);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -33,15 +35,16 @@ function AddOrUpdateProduct({ products, categories, getProducts, getCategories, 
 }
 
 export function getProductById(products, productId) {
-    let product = products.find(product => product.id === productId) || null;
+    let product = products.find(product => product.id == productId) || null;
     return product;
 }
 
-function mapStateToProps(state, ownProps) {
-    // const productId = ownProps.match.params.productId;
-    // const product = productId && state.productListReducer.length > 0
-    //     ? getProductById(state.productListReducer, productId)
-    //     : {}
+// function mapStateToProps(state, ownProps) {
+// const productId = ownProps.match.params.productId;
+// const product = productId && state.productListReducer.length > 0
+//     ? getProductById(state.productListReducer, productId)
+//     : {}
+function mapStateToProps(state) {
     return {
         product: {},
         products: state.productListReducer,
