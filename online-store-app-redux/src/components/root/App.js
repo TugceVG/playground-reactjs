@@ -16,6 +16,7 @@ export default class App extends Component {
           <Route path="/" element={<Dashboard />} />
           <Route path="/product" element={<Dashboard />} />
           <Route path="/saveproduct/:productId" element={<AddOrUpdateProduct />} />
+          <Route path="/saveproduct" element={<AddOrUpdateProduct />} />
           <Route path="/cart" element={<CartDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
