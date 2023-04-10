@@ -7,6 +7,7 @@ import ProductDetail from "./ProductDetail";
 
 function AddOrUpdateProduct({ products, categories, getProducts, getCategories, saveProduct, history, ...props }) {
     const [product, setProduct] = useState({ ...props.product });
+    const [errors, setErrors] = useState({});
     const { productId } = useParams();
 
     useEffect(() => {
@@ -18,9 +19,14 @@ function AddOrUpdateProduct({ products, categories, getProducts, getCategories, 
         setProduct(selectedProduct || { ...props.product });
     }, [productId, products, props.product]);
 
+    function validate(name, value) {
+        setErrors(previousErrors => ({ ...previousErrors, [name]: value ? "" : `${name} is required` }));
+    }
+
     function handleChange(event) {
         const { name, value } = event.target;
-        setProduct(previousProduct => ({ ...previousProduct, [name]: name === "categoryId" ? parseInt(value, 10) : value }))
+        setProduct(previousProduct => ({ ...previousProduct, [name]: name === "categoryId" ? parseInt(value, 10) : value }));
+        validate(name, value);
     }
 
     function handleSave(event) {
@@ -30,7 +36,13 @@ function AddOrUpdateProduct({ products, categories, getProducts, getCategories, 
         });
     }
     return (
-        <ProductDetail product={product} categories={categories} onChange={handleChange} onSave={handleSave} />
+        <ProductDetail
+            product={product}
+            categories={categories}
+            onChange={handleChange}
+            onSave={handleSave}
+            errors={errors}
+        />
     )
 }
 
