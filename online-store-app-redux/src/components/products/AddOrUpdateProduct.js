@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 import { getCategories } from "../../redux/actions/categoryActions";
 import { saveProduct } from "../../redux/actions/productActions";
 import ProductDetail from "./ProductDetail";
 
-function AddOrUpdateProduct({ products, categories, getProducts, getCategories, saveProduct, history, ...props }) {
+function AddOrUpdateProduct({ products, categories, getProducts, getCategories, saveProduct, ...props }) {
     const [product, setProduct] = useState({ ...props.product });
     const [errors, setErrors] = useState({});
     const { productId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (categories.length === 0) {
@@ -32,7 +34,8 @@ function AddOrUpdateProduct({ products, categories, getProducts, getCategories, 
     function handleSave(event) {
         event.preventDefault();
         saveProduct(product).then(() => {
-            history.pushState("/")
+            navigate("/");
+
         });
     }
     return (
@@ -69,4 +72,4 @@ const mapDispatchToProps = {
     saveProduct
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddOrUpdateProduct)
+export default connect(mapStateToProps, mapDispatchToProps)(AddOrUpdateProduct);

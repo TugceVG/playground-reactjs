@@ -13,6 +13,6 @@ export function getCategories() {
         let url = "http://localhost:3000/categories";
         return fetch(url)
             .then(response => response.json())
-            .then(data => dispatch(getCategoriesSuccess(data)))
+            .then(data => dispatch(getCategoriesSuccess(data)));
     }
 }
