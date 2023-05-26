@@ -1,16 +1,19 @@
-import "./topbar.css";
+import { Link } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import "./topbar.css";
 
 export default function Topbar() {
     return (
         <div className="topbarContainer">
             <div className="topbarLeft">
-                <span className="logo">
-                    LamaDev.
-                </span>
+                <Link to="/">
+                    <span className="logo">
+                        TugceSocial.
+                    </span>
+                </Link>
             </div>
             <div className="topbarCenter">
                 <div className="searchbar">
