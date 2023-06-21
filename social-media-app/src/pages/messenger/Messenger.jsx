@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
+import { io } from "socket.io-client";
+
 import ChatOnline from "../../components/chatOnline/ChatOnline";
 import Conversations from "../../components/conversation/Conversations";
 import Message from "../../components/message/Message";
@@ -12,8 +14,22 @@ export default function Messenger() {
     const [currentChat, setCurrentChat] = useState(null);
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
+    const socket = useRef();
+    // const [socket, setSocket] = useState(null);
     const { user } = useContext(AuthContext);
     const scrollRef = useRef();
+
+    useEffect(() => {
+        socket.current = io("ws://localhost:8900");
+        // setSocket(io("ws://localhost:8900"));
+    }, []);
+
+    useEffect(() => {
+        socket.current.emit("addUser", user._id);
+        socket.current.on("getUsers", users => {
+            console.log(users)
+        })
+    }, [user]);
 
     useEffect(() => {
         const getConversations = async () => {
@@ -38,7 +54,7 @@ export default function Messenger() {
         }
         getMessages();
     }, [currentChat])
-    console.log(messages);
+    // console.log(messages);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,7 +85,7 @@ export default function Messenger() {
                     <div className="chatMenuWrapper">
                         <input className="chatMenuInput" placeholder="Search for friends..." />
                         {conversations.map((conversation) => (
-                            <div onClick={() => setCurrentChat(conversation)}>
+                            <div key={conversation._id} onClick={() => setCurrentChat(conversation)}>
                                 <Conversations conversation={conversation} currentUser={user} />
                             </div>
                         ))}
