@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
 
+import { AuthContext } from "../../context/AuthContext";
+import { LoginSuccess } from "../../context/AuthActions"
 import "./register.css";
 
 export default function Register() {
@@ -11,6 +13,7 @@ export default function Register() {
     const password = useRef();
     const passwordAgain = useRef();
     const navigate = useNavigate();
+    const { dispatch } = useContext(AuthContext);
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -24,8 +27,9 @@ export default function Register() {
             }
 
             try {
-                await axios.post("/auth/register", user);
-                navigate('/login');
+                const registeredUser = await axios.post("/auth/register", user);
+                dispatch(LoginSuccess(registeredUser.data));
+                navigate('/');
             } catch (err) {
                 console.log(err)
             }
