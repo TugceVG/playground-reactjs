@@ -1,12 +1,14 @@
-import "./rightbar.css";
-import { Users } from "../../dummyData";
-import Online from "../online/Online";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import axios from "axios";
-import { Link } from "react-router-dom";
+
+import { Users } from "../../dummyData";
+import Online from "../online/Online";
+import { Unfollow, Follow } from "../../context/AuthActions";
 import { AuthContext } from "../../context/AuthContext";
+import "./rightbar.css";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -39,10 +41,10 @@ export default function Rightbar({ user }) {
         try {
             if (followed) {
                 await axios.put("/users/" + user._id + "/unfollow", { userId: currentUser._id });
-                dispatch({ type: "UNFOLLOW", payload: user._id })
+                dispatch(Unfollow(user._id));
             } else {
                 await axios.put("/users/" + user._id + "/follow", { userId: currentUser._id });
-                dispatch({ type: "FOLLOW", payload: user._id })
+                dispatch(Follow(user._id));
             }
 
             setFollowed(followed => !followed);
@@ -93,8 +95,8 @@ export default function Rightbar({ user }) {
                 </div>
                 <h4 className="rightbarTitle">User Friends</h4>
                 <div className="rightbarFollowings">
-                    {friends.map((friend) => (
-                        <Link to={"/profile/" + friend.username} style={{ textDecoration: "none" }}>
+                    {friends.map((friend, index) => (
+                        <Link key={index} to={"/profile/" + friend.username} style={{ textDecoration: "none" }}>
                             <div className="rightbarFollowing">
                                 <img src={friend.profilePicture ? PF + friend.profilePicture : PF + "person/noAvatar.png"} alt="" className="rightbarFollowingImg" />
                                 <span className="rightbarFollowingName">{friend.username}</span>
