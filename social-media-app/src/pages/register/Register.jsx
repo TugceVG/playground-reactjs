@@ -1,11 +1,10 @@
 import { useRef, useContext } from "react";
 import { useNavigate } from "react-router";
-import { NavLink } from 'react-router-dom';
 import axios from "axios";
 
 import { AuthContext } from "../../context/AuthContext";
 import { LoginSuccess } from "../../context/AuthActions"
-import "./register.css";
+import "./register.scss";
 
 export default function Register() {
     const username = useRef();
@@ -45,14 +44,35 @@ export default function Register() {
                 </div>
                 <div className="loginRight">
                     <form className="loginBox" onSubmit={handleClick}>
-                        <input ref={username} required placeholder="Username" className="loginInput" />
-                        <input ref={email} required placeholder="E-mail" type="email" className="loginInput" />
-                        <input ref={password} required placeholder="Password" type="password" className="loginInput" minLength="6" />
-                        <input ref={passwordAgain} required placeholder="Password Again" type="password" className="loginInput" />
+                        <input
+                            className="loginInput"
+                            placeholder="Username"
+                            ref={username}
+                            required
+                        />
+                        <input
+                            type="email"
+                            className="loginInput"
+                            placeholder="E-mail"
+                            ref={email}
+                            required
+                        />
+                        <input
+                            type="password"
+                            className="loginInput"
+                            placeholder="Password"
+                            ref={password}
+                            minLength="6"
+                            required
+                        />
+                        <input
+                            type="password"
+                            className="loginInput"
+                            placeholder="Password Again"
+                            ref={passwordAgain}
+                            required
+                        />
                         <button type="submit" className="loginButton">Sign Up</button>
-                        <NavLink to="/login" className="loginRegisterButton">
-                            Log into Account
-                        </NavLink>
                     </form>
                 </div>
             </div>
