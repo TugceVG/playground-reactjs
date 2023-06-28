@@ -1,9 +1,10 @@
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+
 import Post from "../post/Post.jsx";
 import Share from "../share/Share.jsx";
-import "./feed.css";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
+import "./feed.scss";
 
 export default function Feed({ username }) {
     const [posts, setPosts] = useState([]);
