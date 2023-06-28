@@ -1,4 +1,4 @@
-import "./sidebar.css";
+import "./sidebar.scss";
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import ChatIcon from '@mui/icons-material/Chat';
 import GroupIcon from '@mui/icons-material/Group';
