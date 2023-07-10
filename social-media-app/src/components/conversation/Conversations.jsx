@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./conversations.css";
+import "./conversations.scss";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
