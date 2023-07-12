@@ -8,7 +8,7 @@ import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { Unfollow, Follow } from "../../context/AuthActions";
 import { AuthContext } from "../../context/AuthContext";
-import "./rightbar.css";
+import "./rightbar.scss";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -98,7 +98,7 @@ export default function Rightbar({ user }) {
                     {friends.map((friend, index) => (
                         <Link key={index} to={"/profile/" + friend.username} style={{ textDecoration: "none" }}>
                             <div className="rightbarFollowing">
-                                <img src={friend.profilePicture ? PF + friend.profilePicture : PF + "person/noAvatar.png"} alt="" className="rightbarFollowingImg" />
+                                <img className="rightbarFollowingImg" src={friend.profilePicture ? PF + friend.profilePicture : PF + "person/noAvatar.png"} alt="" />
                                 <span className="rightbarFollowingName">{friend.username}</span>
                             </div>
                         </Link>

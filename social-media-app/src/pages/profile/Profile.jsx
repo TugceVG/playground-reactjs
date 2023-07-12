@@ -6,18 +6,23 @@ import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
-import "./profile.css";
+import "./profile.scss";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
 export default function Profile() {
     const [user, setUser] = useState({});
-    const username = useParams().username;
+    const { username } = useParams();
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`/users?username=${username}`);
-            setUser(res.data);
+            try {
+                const res = await axios.get(`/users?username=${username}`);
+                setUser(res.data);
+
+            } catch (err) {
+                console.error(err);
+            }
         }
         fetchUser();
     }, [username]);

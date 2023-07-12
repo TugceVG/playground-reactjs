@@ -7,7 +7,7 @@ import Conversations from "../../components/conversation/Conversations";
 import Message from "../../components/message/Message";
 import Topbar from "../../components/topbar/Topbar";
 import { AuthContext } from "../../context/AuthContext";
-import "./messenger.css";
+import "./messenger.scss";
 
 export default function Messenger() {
     const [conversations, setConversations] = useState([]);
@@ -114,31 +114,34 @@ export default function Messenger() {
                 </div>
                 <div className="chatBox">
                     <div className="chatBoxWrapper">
-                        {currentChat ? <>
-                            <div className="chatBoxTop">
-                                {messages.map((message) => (
-                                    <div ref={scrollRef}>
-                                        <Message message={message} own={message.sender === user._id} user={user} />
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="chatBoxBottom">
-                                <textarea
-                                    className="chatMessageInput"
-                                    placeholder="Write something..."
-                                    onChange={(e) => setNewMessage(e.target.value)}
-                                    value={newMessage}
-                                >
+                        {currentChat
+                            ? <>
+                                <div className="chatBoxTop">
+                                    {messages.map((message) => (
+                                        <div ref={scrollRef}>
+                                            <Message message={message} own={message.sender === user._id} user={user} />
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="chatBoxBottom">
+                                    <textarea
+                                        className="chatMessageInput"
+                                        placeholder="Write something..."
+                                        onChange={(e) => setNewMessage(e.target.value)}
+                                        value={newMessage}
+                                    >
 
-                                </textarea>
-                                <button
-                                    className="chatSubmitButton"
-                                    onClick={handleSubmit}
-                                >
-                                    Send
-                                </button>
-                            </div>
-                        </> : <span className="noConversationText">Open a conversation to start a chat.</span>}
+                                    </textarea>
+                                    <button
+                                        className="chatSubmitButton"
+                                        onClick={handleSubmit}
+                                    >
+                                        Send
+                                    </button>
+                                </div>
+                            </>
+                            : <span className="noConversationText">Open a conversation to start a chat.</span>
+                        }
                     </div>
                 </div>
                 <div className="chatOnline">

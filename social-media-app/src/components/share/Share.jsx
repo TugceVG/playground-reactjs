@@ -1,4 +1,4 @@
-import "./share.css";
+import "./share.scss";
 import PermMediaIcon from '@mui/icons-material/PermMedia';
 import LabelIcon from '@mui/icons-material/Label';
 import RoomIcon from '@mui/icons-material/Room';

@@ -1,7 +1,7 @@
 import { useContext, useReducer, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { format } from "timeago.js";
-import "./message.css";
+import "./message.scss";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 

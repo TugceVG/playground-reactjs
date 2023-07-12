@@ -5,7 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-import "./topbar.css";
+import "./topbar.scss";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {

@@ -1,4 +1,4 @@
-import "./closeFriend.css";
+import "./closeFriend.scss";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
