@@ -81,6 +81,7 @@
                 }
                 
                 .loginRegisterButton {
+                    display: flex;
                     height: 50px;
                     width: 60%;
                     border: none;
@@ -91,6 +92,9 @@
                     font-weight: 500;
                     align-self: center;
                     cursor: pointer;
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
                 }
             }
             
