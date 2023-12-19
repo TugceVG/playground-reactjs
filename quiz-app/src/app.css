@@ -1,0 +1,28 @@
+.question-card {
+  display: flex;
+  flex-direction: column;
+  background: pink;
+  padding: 10px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  background: yellow;
+  width: 100%;
+  height: 3px;
+}
+
+main .options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+footer {
+  margin-top: 10px;
+}
