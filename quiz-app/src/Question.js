@@ -11,7 +11,19 @@ Question.prototype.checkMyAnswer = function (answer) {
 };
 
 export default [
-  new Question("Soru 1", { a: 1, b: 2, c: 3, d: 4 }, "a"),
-  new Question("Soru 2", { a: 1, b: 2, c: 3, d: 4 }, "b"),
-  new Question("Soru 3", { a: 1, b: 2, c: 3, d: 4 }, "c"),
+  new Question(
+    "Soru 1 in textini barindirmmaktadir?",
+    { a: 1, b: 2, c: 3, d: 4 },
+    "a"
+  ),
+  new Question(
+    "Soru 2 nin textini barindirmmaktadir?",
+    { a: 1, b: 2, c: 3, d: 4 },
+    "b"
+  ),
+  new Question(
+    "Soru 3 un textini barindirmmaktadir?",
+    { a: 1, b: 2, c: 3, d: 4 },
+    "c"
+  ),
 ];

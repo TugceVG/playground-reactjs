@@ -3,8 +3,41 @@ import questions from "./Question.js";
 import "./app.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  console.log({ questions });
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
+  const [isNextButtonActive, setIsNextButtonActive] = useState(false);
+  const [userAnswer, setUserAnswer] = useState("");
+  const activeQuestion = questions[activeQuestionIndex];
+
+  const handleClick = (key) => {
+    if (userAnswer) {
+      return;
+    }
+    setUserAnswer(key);
+    setIsNextButtonActive(true);
+  };
+
+  const getOptionClass = (key) => {
+    if (userAnswer === key) {
+      return userAnswer === activeQuestion.correctAnswer ? "correct" : "wrong";
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (activeQuestionIndex < questions.length - 1) {
+      setActiveQuestionIndex((prev) => prev + 1);
+      setUserAnswer("");
+      setIsNextButtonActive(false);
+    }
+  };
+
+  const getButtonIsDisabled = (key) => {
+    if (userAnswer === "" || userAnswer === key) {
+      return false;
+    }
+
+    return true;
+  };
+
   return (
     <div className="question-card">
       <header>
@@ -16,16 +49,27 @@ function App() {
       </header>
       <div className="progress-bar"></div>
       <main>
-        <p>Soru1</p>
+        <p>{activeQuestion.question}</p>
         <div className="options">
-          <button className="option">a: 1</button>
-          <button className="option">b: 2</button>
-          <button className="option">c: 3</button>
-          <button className="option">d: 4</button>
+          {Object.entries(activeQuestion.options).map(([key, value]) => (
+            <button
+              disabled={getButtonIsDisabled(key)}
+              className={"option " + getOptionClass(key)}
+              onClick={() => handleClick(key)}
+            >
+              {key}: {value}
+            </button>
+          ))}
         </div>
       </main>
       <footer>
         <span>1/4</span>
+        <button
+          className={isNextButtonActive ? "active" : ""}
+          onClick={() => handleNextQuestion()}
+        >
+          Next Question
+        </button>
       </footer>
     </div>
   );
