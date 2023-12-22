@@ -1,11 +1,17 @@
 import { useState } from "react";
 import questions from "./Question.js";
+import SummaryCard from "./SummaryCard.jsx";
 import "./app.css";
 
+// let correctAnswerCount = 0;
+
 function App() {
+  const [isQuizStarted, setIsQuizStarted] = useState(false);
+  const [isQuizFinished, setIsQuizFinished] = useState(false);
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
   const [isNextButtonActive, setIsNextButtonActive] = useState(false);
   const [userAnswer, setUserAnswer] = useState("");
+  const [correctAnswerCount, setCorrectAnswerCount] = useState(0);
   const activeQuestion = questions[activeQuestionIndex];
 
   const handleClick = (key) => {
@@ -18,7 +24,10 @@ function App() {
 
   const getOptionClass = (key) => {
     if (userAnswer === key) {
-      return userAnswer === activeQuestion.correctAnswer ? "correct" : "wrong";
+      if (userAnswer === activeQuestion.correctAnswer) {
+        return "correct";
+      }
+      return "wrong";
     }
   };
 
@@ -27,6 +36,11 @@ function App() {
       setActiveQuestionIndex((prev) => prev + 1);
       setUserAnswer("");
       setIsNextButtonActive(false);
+    } else {
+      setIsQuizFinished(true);
+    }
+    if (userAnswer === activeQuestion.correctAnswer) {
+      setCorrectAnswerCount((prev) => prev + 1);
     }
   };
 
@@ -37,6 +51,23 @@ function App() {
 
     return true;
   };
+
+  if (!isQuizStarted) {
+    return (
+      <button className="start-btn" onClick={() => setIsQuizStarted(true)}>
+        Start Quiz
+      </button>
+    );
+  }
+
+  if (isQuizFinished) {
+    return (
+      <SummaryCard
+        questions={questions}
+        correctAnswerCount={correctAnswerCount}
+      />
+    );
+  }
 
   return (
     <div className="question-card">

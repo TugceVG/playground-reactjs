@@ -1,3 +1,23 @@
+.start-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: gray;
+  color: #fff;
+  font-weight: bold;
+}
+
+.summary-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 10px;
+}
+
 .question-card {
   position: absolute;
   top: 50%;
