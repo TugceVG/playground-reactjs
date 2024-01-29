@@ -2,6 +2,7 @@ import "./index.css";
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
 import { useState } from "react";
+import ResultTable from "./components/ResultTable";
 
 const INITIAL_INPUTS_VALUES = {
   initialInvestment: 10000,
@@ -16,6 +17,7 @@ function App() {
     <>
       <Header />
       <UserInput userInputs={userInputs} setUserInputs={setUserInputs} />
+      <ResultTable userInputs={userInputs} />
     </>
   );
 }

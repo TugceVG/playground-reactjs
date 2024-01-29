@@ -2,7 +2,7 @@ export default function UserInput({ userInputs, setUserInputs }) {
   function handleInputChange(event) {
     setUserInputs((prev) => ({
       ...prev,
-      [event.target.name]: event.target.value,
+      [event.target.name]: Number(event.target.value),
     }));
   }
 
