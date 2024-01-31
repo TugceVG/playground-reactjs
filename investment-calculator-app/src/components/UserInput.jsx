@@ -1,11 +1,4 @@
-export default function UserInput({ userInputs, setUserInputs }) {
-  function handleInputChange(event) {
-    setUserInputs((prev) => ({
-      ...prev,
-      [event.target.name]: Number(event.target.value),
-    }));
-  }
-
+export default function UserInput({ userInputs, handleInputChange }) {
   return (
     <section id="user-input">
       <div className="input-group">
