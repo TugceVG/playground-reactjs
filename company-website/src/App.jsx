@@ -1,7 +1,9 @@
+import Footer from "./components/Footer";
+
 function App() {
   return (
     <>
-      <p>Start here</p>
+      <Footer />
     </>
   );
 }
