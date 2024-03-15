@@ -22,9 +22,10 @@ function Navbar() {
       <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
         <img src={logo} />
       </Link>
-      <div className="menu-icon" onClick={toggleHamburgerMenu}>
-        <i className={isHamburgerMenuOpen ? "fas fa-times" : "fas fa-bars"} />
-      </div>
+      <div
+        onClick={toggleHamburgerMenu}
+        className={isHamburgerMenuOpen ? "fas fa-times" : "fas fa-bars"}
+      />
       <ul className={isHamburgerMenuOpen ? "nav-menu open" : "nav-menu"}>
         {navItems.map((navItem) => (
           <li className={getSelectedClassName(navItem)} key={navItem.id}>
