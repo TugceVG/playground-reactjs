@@ -38,6 +38,9 @@ function Navbar() {
             </Link>
           </li>
         ))}
+        <li className="nav-item call-now-btn">
+          <a className="btn btn--outline btn--large">Hemen Ara</a>
+        </li>
       </ul>
     </nav>
   );

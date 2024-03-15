@@ -36,6 +36,12 @@
   transition: all 0.2s ease-out;
 }
 
+.nav-item.call-now-btn {
+  position: absolute;
+  right: 30px;
+  align-self: center;
+}
+
 .nav-links {
   color: #fff;
   display: flex;
@@ -64,7 +70,6 @@
 
 @media screen and (max-width: 960px) {
   .nav-menu {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
@@ -83,6 +88,11 @@
 
   .nav-item {
     align-self: center;
+  }
+
+  .nav-item.call-now-btn {
+    position: relative;
+    right: 0;
   }
 
   .nav-links {
