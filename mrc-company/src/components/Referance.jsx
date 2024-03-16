@@ -1,5 +1,4 @@
 import "./referance.css";
-import hhh from "../assets/cvk.jpeg";
 
 const referanceData = [
   {
@@ -75,7 +74,7 @@ export default function Referance() {
       <h1 className="referance">Referanslar</h1>
       <div className="referance-container">
         {referanceData.map((referance) => (
-          <div className="referance-item">
+          <div className="referance-item" key={referance.id}>
             <img
               src={referance.logo}
               className="referans-logo"

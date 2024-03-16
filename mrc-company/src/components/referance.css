@@ -1,12 +1,4 @@
-.referance {
-  text-align: center;
-  font-size: 3rem;
-  padding-top: 1rem;
-}
-
 .referance-container {
-  width: 100vw;
-  padding: 4rem 2.5rem;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -14,8 +6,6 @@
 }
 
 .referance-item {
-  /* width: 20%; */
-  /* height: 150px; */
   display: flex;
   flex-direction: column;
   align-items: center;
