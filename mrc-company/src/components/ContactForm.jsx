@@ -1,9 +1,36 @@
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 import "./contactForm.css";
 
+const emailjsServiceId = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
+const emailjsTemplateId = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
+const emailjsPublicKey = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
+
 export default function ContactForm() {
+  const formRef = useRef(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(emailjsServiceId, emailjsTemplateId, formRef.current, {
+        publicKey: emailjsPublicKey,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+    e.target.reset();
+  };
+
   return (
-    <div className="contact">
-      <h1>Iletisim</h1>
+    <>
+      <h1>İletişim</h1>
       <div className="contact-container">
         <div className="form-container">
           <div className="form-container-title">
@@ -13,7 +40,7 @@ export default function ContactForm() {
               taleplerinizi bizlere mail aracılığıyla iletebilirsiniz.
             </p>
           </div>
-          <form>
+          <form ref={formRef} onSubmit={sendEmail}>
             <input type="text" placeholder="Adınız" name="name" required />
             <input
               type="email"
@@ -62,6 +89,6 @@ export default function ContactForm() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

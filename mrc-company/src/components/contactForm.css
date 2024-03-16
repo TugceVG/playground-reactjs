@@ -1,14 +1,6 @@
-.contact h1 {
-  text-align: center;
-  font-size: 3rem;
-  padding-top: 1rem;
-}
-
 .contact-container {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  margin: 4rem 6rem;
   gap: 2rem;
 }
 
@@ -35,7 +27,7 @@
 .form-container form {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 
 .form-container input {
@@ -54,12 +46,12 @@
 }
 
 .form-container button {
-  /* display: inline; */
   padding: 0.5rem;
   border: 1px solid #2a2a2a;
   border-radius: 0.3rem;
-  background-color: #fff;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   font-weight: 500;
+  color: #fff;
 }
 
 .form-container button:hover {
@@ -106,7 +98,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .contact {
+  .contact-container {
     flex-direction: column;
   }
 
