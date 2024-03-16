@@ -17,6 +17,18 @@
   font-size: 3rem;
 }
 
+.hero-sub-container {
+  height: 55vh;
+  width: 100%;
+}
+
+.hero-sub-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 56%;
+}
+
 @media screen and (max-width: 960px) {
   .page {
     margin: 2rem;
@@ -24,5 +36,9 @@
 
   .page h1 {
     margin: 1rem 0;
+  }
+
+  .hero-sub-container {
+    display: none;
   }
 }
