@@ -97,6 +97,24 @@
   gap: 1rem;
 }
 
+.status-message {
+  background: lightgreen;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.status-message.failure {
+  background: pink;
+}
+
+.status-message i {
+  font-size: 2rem;
+}
+
 @media screen and (max-width: 768px) {
   .contact-container {
     flex-direction: column;

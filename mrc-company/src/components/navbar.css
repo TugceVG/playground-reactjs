@@ -57,7 +57,7 @@
   transition: all 0.2s ease-out;
 }
 
-.fas {
+.navbar .fas {
   display: none;
   font-size: 2rem;
   position: absolute;
@@ -102,7 +102,7 @@
     width: auto;
   }
 
-  .fas {
+  .navbar .fas {
     display: flex;
   }
 }

@@ -3,7 +3,34 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./navbar.css";
 import logo from "../assets/logo3.png";
-import { navItems } from "./navItems.js";
+
+const navItems = [
+  {
+    id: 1,
+    title: "Ana Sayfa",
+    url: "/",
+  },
+  {
+    id: 2,
+    title: "Hakkımızda",
+    url: "/about",
+  },
+  {
+    id: 3,
+    title: "Hizmetlerimiz",
+    url: "/services",
+  },
+  {
+    id: 4,
+    title: "Referanslar",
+    url: "/referances",
+  },
+  {
+    id: 5,
+    title: "İletişim",
+    url: "/contact",
+  },
+];
 
 function Navbar() {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
@@ -39,7 +66,9 @@ function Navbar() {
           </li>
         ))}
         <li className="nav-item call-now-btn">
-          <a className="btn btn--outline btn--large">Hemen Ara</a>
+          <a className="call-now-link" href="tel:+905388670000">
+            Hemen Ara
+          </a>
         </li>
       </ul>
     </nav>

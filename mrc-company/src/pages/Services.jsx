@@ -1,13 +1,21 @@
-import React from "react";
+import Page from "../components/Page";
+import { serviceData } from "../components/serviceData";
 
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import "../styles/services.css";
 
 export default function Services() {
   return (
-    <>
-      <Navbar />
-      <Footer />
-    </>
+    <Page>
+      <h1>Hizmetlerimiz</h1>
+      {serviceData.map(({ id, title, text, src }) => (
+        <section key={id} className="services" id={id}>
+          <img src={src} />
+          <div className="service-info">
+            <h2>{title}</h2>
+            <p>{text}</p>
+          </div>
+        </section>
+      ))}
+    </Page>
   );
 }

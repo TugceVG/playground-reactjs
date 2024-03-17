@@ -7,6 +7,10 @@
   font-family: "PT Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .page {
   margin: 2rem 4rem;
 }

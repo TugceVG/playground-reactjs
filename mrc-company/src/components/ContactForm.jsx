@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 import "./contactForm.css";
@@ -7,11 +7,31 @@ const emailjsServiceId = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
 const emailjsTemplateId = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
 const emailjsPublicKey = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
 
+const SuccessMessage = () => (
+  <div className="status-message">
+    <i class="fa-solid fa-thumbs-up" />
+    <p>
+      Mailiniz tarafimiza iletilmistir. Size en kisa surede donus yapilacaktir.
+    </p>
+  </div>
+);
+
+const FailureMessage = () => (
+  <div className="status-message failure">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <p>
+      Teknik bir problemden dolayi mailiniz iletilmedi. Lutfen telefon ile
+      iletisime geciniz.
+    </p>
+  </div>
+);
+
 export default function ContactForm() {
+  const [emailSendingStatus, setEmailSendingStatus] = useState("failure");
   const formRef = useRef(null);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const sendEmail = async (event) => {
+    event.preventDefault();
 
     emailjs
       .sendForm(emailjsServiceId, emailjsTemplateId, formRef.current, {
@@ -19,13 +39,14 @@ export default function ContactForm() {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          event.target.reset();
+          setEmailSendingStatus("success");
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          console.error(error);
+          setEmailSendingStatus("failure");
         }
       );
-    e.target.reset();
   };
 
   return (
@@ -56,6 +77,8 @@ export default function ContactForm() {
               name="message"
               required
             ></textarea>
+            {emailSendingStatus === "success" && <SuccessMessage />}
+            {emailSendingStatus === "failure" && <FailureMessage />}
             <button type="submit">Mesajı Gönder</button>
           </form>
         </div>
@@ -64,10 +87,10 @@ export default function ContactForm() {
           <div className="map-container">
             <h2>Şirket Lokasyonu</h2>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6017.0499502587!2d28.985282076664408!3d41.05751601639063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7054b58c1c7%3A0x2ff56cead09652d5!2sMRC%20%C4%B0nsan%20Kaynaklar%C4%B1!5e0!3m2!1str!2slu!4v1710328157338!5m2!1str!2slu"
-              allowFullScreen=""
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d859.6827066379739!2d29.133916531482623!3d40.92865740520354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a148f4659b%3A0xc8a8ba48e6a6f2c5!2zQmHEn2xhcmJhxZ_EsSwgQXRhdMO8cmsgQ2QuIE5vOjg4LCAzNDg0NCBNYWx0ZXBlL8Swc3RhbmJ1bCwgVMO8cmtpeWU!5e0!3m2!1str!2slu!4v1710704746106!5m2!1str!2slu"
+              allowfullscreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
           <div className="address-detail-container">

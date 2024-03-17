@@ -27,14 +27,6 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
-.hero-btns {
-  margin-top: 32px;
-}
-
-.hero-btns .btn {
-  margin: 6px;
-}
-
 .fa-play-circle {
   margin-left: 4px;
 }
@@ -76,6 +68,32 @@
 .service-list p {
   padding: 1rem;
   font-weight: 600;
+}
+
+.hero-btns {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.call-now-link {
+  text-transform: uppercase;
+  display: flex;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: black;
+  gap: 1rem;
+}
+
+.call-now-link:hover {
+  background: white;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {
