@@ -1,5 +1,17 @@
 import "./referance.css";
 import cvk from "../assets/cvk.jpeg";
+import hampton from "../assets/hampton.jpeg";
+import movenpick from "../assets/movenpick.jpeg";
+import decamondoGalata from "../assets/decamondo-galata.jpeg";
+import decamondo from "../assets/decamondo.jpeg";
+import eser from "../assets/eser.jpeg";
+import meridien from "../assets/meridien.jpeg";
+import vital from "../assets/vital.jpeg";
+import marriotFulya from "../assets/marriot-fulya.jpeg";
+import Radisson from "../assets/Radisson.jpeg";
+import movenpickCamlivadi from "../assets/movenpick-camlivadi.jpeg";
+import doubleTree from "../assets/doubleTree.jpeg";
+import RadissonBlu from "../assets/RadissonBlu.jpeg";
 
 const referanceData = [
   {
@@ -9,63 +21,63 @@ const referanceData = [
   },
   {
     id: 2,
-    name: "Hampton by Hilton",
-    logo: "src/assets/hampton.jpeg",
+    name: "Mövenpick Living Camlivadi",
+    logo: movenpickCamlivadi,
   },
   {
     id: 3,
     name: "Mövenpick Living Istanbul",
-    logo: "src/assets/movenpick.jpeg",
+    logo: movenpick,
   },
   {
     id: 4,
-    name: "De Camondo Galata",
-    logo: "src/assets/decamondo-galata.jpeg",
+    name: "Radisson Blu",
+    logo: RadissonBlu,
   },
   {
     id: 5,
     name: "De Camondo Collection",
-    logo: "src/assets/decamondo.jpeg",
+    logo: decamondo,
   },
   {
     id: 6,
     name: "Eser Premium Hotel&Spa Istanbul",
-    logo: "src/assets/eser.jpeg",
+    logo: eser,
   },
   {
     id: 7,
     name: "Le Meridien Etiler Istanbul",
-    logo: "src/assets/meridien.jpeg",
+    logo: meridien,
   },
   {
     id: 8,
     name: "Vital Hotel Fulya",
-    logo: "src/assets/vital.jpeg",
+    logo: vital,
   },
   {
     id: 9,
     name: "Marriott Executive Apartments Fulya Istanbul",
-    logo: "src/assets/marriot-fulya.jpeg",
+    logo: marriotFulya,
   },
   {
     id: 10,
     name: "Radisson Collection VadIstanbul",
-    logo: "src/assets/Radisson.jpeg",
+    logo: Radisson,
   },
   {
     id: 11,
-    name: "Mövenpick Living Camlivadi",
-    logo: "src/assets/movenpick-camlivadi.jpeg",
+    name: "Hampton by Hilton",
+    logo: hampton,
   },
   {
     id: 12,
     name: "DoubleTree by Hilton Moda",
-    logo: "src/assets/doubleTree.jpeg",
+    logo: doubleTree,
   },
   {
     id: 13,
-    name: "Radisson Blu",
-    logo: "src/assets/RadissonBlu.jpeg",
+    name: "De Camondo Galata",
+    logo: decamondoGalata,
   },
 ];
 
