@@ -3,8 +3,8 @@
   gap: 1rem;
   border-radius: 5px;
   margin-bottom: 1rem;
-  padding: 1rem;
-  box-shadow: rgb(112, 106, 112) -1px 4px 20px -4px;
+  padding: 2rem;
+  box-shadow: -1px 1px 62px -18px rgba(0, 0, 0, 0.19);
 }
 
 .services:nth-child(even) {
@@ -15,6 +15,14 @@
   max-width: 350px;
   border-radius: 50%;
   padding: 1rem;
+}
+
+.services h2 {
+  font-size: 2rem;
+}
+
+.services p {
+  font-size: 1.2rem;
 }
 
 .service-info {

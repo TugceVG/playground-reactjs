@@ -46,7 +46,8 @@
 }
 
 .form-container button {
-  padding: 0.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
   border: 1px solid #2a2a2a;
   border-radius: 0.3rem;
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);

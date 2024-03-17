@@ -9,7 +9,7 @@ const emailjsPublicKey = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
 
 const SuccessMessage = () => (
   <div className="status-message">
-    <i class="fa-solid fa-thumbs-up" />
+    <i className="fa-solid fa-thumbs-up" />
     <p>
       Mailiniz tarafimiza iletilmistir. Size en kisa surede donus yapilacaktir.
     </p>
@@ -18,7 +18,7 @@ const SuccessMessage = () => (
 
 const FailureMessage = () => (
   <div className="status-message failure">
-    <i class="fa-solid fa-circle-exclamation"></i>
+    <i className="fa-solid fa-circle-exclamation"></i>
     <p>
       Teknik bir problemden dolayi mailiniz iletilmedi. Lutfen telefon ile
       iletisime geciniz.
@@ -88,9 +88,9 @@ export default function ContactForm() {
             <h2>Şirket Lokasyonu</h2>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d859.6827066379739!2d29.133916531482623!3d40.92865740520354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6a148f4659b%3A0xc8a8ba48e6a6f2c5!2zQmHEn2xhcmJhxZ_EsSwgQXRhdMO8cmsgQ2QuIE5vOjg4LCAzNDg0NCBNYWx0ZXBlL8Swc3RhbmJ1bCwgVMO8cmtpeWU!5e0!3m2!1str!2slu!4v1710704746106!5m2!1str!2slu"
-              allowfullscreen=""
+              allowFullScreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
           <div className="address-detail-container">
