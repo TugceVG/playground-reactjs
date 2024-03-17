@@ -1,10 +1,11 @@
 import "./referance.css";
+import cvk from "../assets/cvk.jpeg";
 
 const referanceData = [
   {
     id: 1,
     name: "CVK Hotels & Resorts Park Bosphorus Istanbul",
-    logo: "src/assets/cvk.jpeg",
+    logo: cvk,
   },
   {
     id: 2,
