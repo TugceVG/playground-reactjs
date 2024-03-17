@@ -27,7 +27,7 @@ const FailureMessage = () => (
 );
 
 export default function ContactForm() {
-  const [emailSendingStatus, setEmailSendingStatus] = useState("failure");
+  const [emailSendingStatus, setEmailSendingStatus] = useState("");
   const formRef = useRef(null);
 
   const sendEmail = async (event) => {
