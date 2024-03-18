@@ -37,7 +37,6 @@ function Navbar() {
   const { pathname } = useLocation();
 
   const toggleHamburgerMenu = () => setIsHamburgerMenuOpen((prev) => !prev);
-  const closeMobileMenu = () => setClick(false);
 
   const getSelectedClassName = (navItem) => {
     const isSelected = navItem.url === pathname;
@@ -46,7 +45,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+      <Link to="/" className="navbar-logo">
         <img src={logo} />
       </Link>
       <div
@@ -56,11 +55,7 @@ function Navbar() {
       <ul className={isHamburgerMenuOpen ? "nav-menu open" : "nav-menu"}>
         {navItems.map((navItem) => (
           <li className={getSelectedClassName(navItem)} key={navItem.id}>
-            <Link
-              to={navItem.url}
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
+            <Link to={navItem.url} className="nav-links">
               {navItem.title}
             </Link>
           </li>
