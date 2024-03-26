@@ -12,9 +12,12 @@
 }
 
 .services img {
-  max-width: 350px;
+  max-width: 300px;
   border-radius: 50%;
   padding: 1rem;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .services h2 {

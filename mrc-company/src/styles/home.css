@@ -57,6 +57,7 @@
 
 .service-list img {
   width: 100%;
+  max-height: 300px;
 }
 
 .service-list a {
@@ -114,9 +115,4 @@
   .btn {
     width: 100%;
   }
-
-  /* .service-list img {
-    max-height: 300px;
-    object-fit: cover;
-  } */
 }
