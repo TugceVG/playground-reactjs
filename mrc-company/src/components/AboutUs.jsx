@@ -1,9 +1,9 @@
 import "./aboutUs.css";
 
-import image1 from "../assets/services-img/fb-1.jpeg";
-import image2 from "../assets/services-img/fb-2.jpeg";
-import image3 from "../assets/services-img/fb-3.jpeg";
-import image4 from "../assets/services-img/fb.jpeg";
+import image1 from "../assets/services-img/kat-hizmetleri-12.jpeg";
+import image2 from "../assets/services-img/dis-cephe-5.jpeg";
+import image3 from "../assets/services-img/mutfak-hizmetleri.jpeg";
+import image4 from "../assets/services-img/fb-1.jpeg";
 
 export default function AboutUs() {
   return (
@@ -36,8 +36,8 @@ export default function AboutUs() {
           </p>
         </div>
         <div className="image">
-          <img src={image2} alt="" />
-          <img src={image3} alt="" />
+          <img src={image1} alt="" />
+          <img src={image4} alt="" />
         </div>
       </div>
 
@@ -53,8 +53,8 @@ export default function AboutUs() {
           </p>
         </div>
         <div className="image">
-          <img src={image4} alt="" />
-          <img src={image1} alt="" />
+          <img src={image3} alt="" />
+          <img src={image2} alt="" />
         </div>
       </div>
     </div>
