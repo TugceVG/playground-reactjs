@@ -54,7 +54,11 @@ function Navbar() {
       />
       <ul className={isHamburgerMenuOpen ? "nav-menu open" : "nav-menu"}>
         {navItems.map((navItem) => (
-          <li className={getSelectedClassName(navItem)} key={navItem.id}>
+          <li
+            className={getSelectedClassName(navItem)}
+            key={navItem.id}
+            onClick={toggleHamburgerMenu}
+          >
             <Link to={navItem.url} className="nav-links">
               {navItem.title}
             </Link>
