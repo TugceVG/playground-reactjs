@@ -22,9 +22,6 @@ export default function Footer() {
           >
             <i className="fab fa-instagram-square"></i>
           </a>
-          <a href="/" target="_blank">
-            <i className="fab fa-linkedin"></i>
-          </a>
           <a href="https://wa.me/905388670000" target="_blank">
             <i className="fab fa-whatsapp-square"></i>
           </a>

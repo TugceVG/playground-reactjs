@@ -91,6 +91,10 @@
     align-self: center;
   }
 
+  .nav-item.selected {
+    border-bottom: none;
+  }
+
   .nav-item.call-now-btn {
     position: relative;
     right: 0;
@@ -104,5 +108,15 @@
 
   .navbar .fas {
     display: flex;
+  }
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1050px) {
+  .nav-item.call-now-btn {
+    right: 10px;
+  }
+
+  .call-now-link {
+    min-width: unset;
   }
 }

@@ -20,6 +20,7 @@
 }
 
 .hero-container > p {
+  text-align: center;
   margin-top: 8px;
   color: #fff;
   font-size: 2rem;
@@ -81,8 +82,11 @@
 }
 
 .call-now-link {
+  min-width: 185px;
   text-transform: uppercase;
   display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   border: 1px solid white;
   padding: 1rem 2rem;
@@ -90,12 +94,16 @@
   font-weight: bold;
   color: white;
   background: black;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .call-now-link:hover {
   background: white;
   color: black;
+}
+
+.call-now-link .icon {
+  font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {

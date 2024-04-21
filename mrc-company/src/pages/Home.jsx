@@ -24,7 +24,7 @@ export default function Home() {
             target="_blank"
           >
             <p>WHATSAPP</p>
-            <i className="fab fa-whatsapp"></i>
+            <i className="fab fa-whatsapp icon"></i>
           </a>
         </div>
       </div>
