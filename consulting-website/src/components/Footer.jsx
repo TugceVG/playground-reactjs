@@ -1,55 +1,98 @@
 import "./footer.css";
-import logo from "../assets/logo3.png";
+import { Button } from "./Button";
+import { Link } from "react-router-dom";
 
-export default function Footer() {
+function Footer() {
   return (
-    <div className="footer">
-      <div className="top">
-        <div>
-          <h1>MRC</h1>
-          <p>INSAN KAYNAKLARI YÖNETIM DANIŞMANLIĞI</p>
+    <div className="footer-container">
+      {/* <div className="footer-links"> */}
+
+      <div className="social-media-wrap">
+        <div className="footer-logo">
+          <Link to="/" className="social-logo">
+            MRC
+          </Link>
         </div>
-        <div>
-          <a href="/">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="/">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="/">
-            <i className="fab fa-linkedin"></i>
-          </a>
-          <a href="/">
-            <i className="fab fa-twitterS"></i>
-          </a>
-          <a href="/">
-            <i className="fab fa-whatsapp"></i>
-          </a>
+        <div className="social-icons">
+          <Link
+            className="social-icon-link facebook"
+            to="/"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <i className="fab fa-facebook-f" />
+          </Link>
+          <Link
+            className="social-icon-link instagram"
+            to="/"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i className="fab fa-instagram" />
+          </Link>
+          <Link
+            className="social-icon-link youtube"
+            to="/"
+            target="_blank"
+            aria-label="Youtube"
+          >
+            <i className="fab fa-youtube" />
+          </Link>
+          <Link
+            className="social-icon-link twitter"
+            to="/"
+            target="_blank"
+            aria-label="Twitter"
+          >
+            <i className="fab fa-twitter" />
+          </Link>
+          <Link
+            className="social-icon-link twitter"
+            to="/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i className="fab fa-linkedin" />
+          </Link>
         </div>
       </div>
-      <div className="bottom">
-        <div>
-          <h4>Hakkimizda</h4>
-          <a href="/">Tarihce</a>
-          <a href="/">Vizyon</a>
-          <a href="/">Misyon</a>
-          <a href="/">Referanslar</a>
+
+      <div className="footer-link-wrapper">
+        <div className="footer-link-items">
+          <h2>Site Haritasi</h2>
+          <Link to="/">Ana Sayfa</Link>
+          <Link to="/">Hakkimizda</Link>
+          <Link to="/">Hizmetlerimiz</Link>
+          <Link to="/">Iletisim</Link>
         </div>
-        <div>
-          <h4>Servisler</h4>
-          <a href="/">Kat Hizmetleri</a>
-          <a href="/">Genel Alan Temizlik Personeli</a>
-          <a href="/">Profesyonel Is yeri Temizligi</a>
-          <a href="/">Mobil Ekip</a>
+        <div className="footer-link-items">
+          <h2>Hakkimizda</h2>
+          <Link to="/sign-up">Hikayemiz</Link>
+          <Link to="/">Vizyon</Link>
+          <Link to="/">Misyon</Link>
+          <Link to="/">Referanslar</Link>
         </div>
-        <div>
-          <h4>Iletisim</h4>
-          <a href="/">Adres</a>
-          <a href="/">Irtibat</a>
-          <a href="/">Mail</a>
-          <a href="/">Calisma Saatlerimiz</a>
+        <div className="footer-link-items">
+          <h2>Hizmetlerimiz</h2>
+          <Link to="/">Kat Hizmetleri</Link>
+          <Link to="/">Genel Alan Temizlik Personeli</Link>
+          <Link to="/">Profesyonel Is Yeri Temizligi</Link>
+          <Link to="/">Mobil Ekip</Link>
+        </div>
+        <div className="footer-link-items">
+          <h2>Iletisim</h2>
+          <Link to="/">Adres</Link>
+          <Link to="/">Tel</Link>
+          <Link to="/">Email</Link>
         </div>
       </div>
+
+      <small className="website-rights">MRC © 2016</small>
+      {/* </div> */}
+      {/* <section className="social-media"> */}
+      {/* </section> */}
     </div>
   );
 }
+
+export default Footer;
