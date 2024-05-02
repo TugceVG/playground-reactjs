@@ -1,0 +1,31 @@
+.footer {
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  padding: 2rem 6rem 0.5rem;
+  color: #fff;
+}
+
+.up {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.up i {
+  color: #fff;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.up i:hover {
+  color: brown;
+}
+
+.down {
+  padding-top: 2rem;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
