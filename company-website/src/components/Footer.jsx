@@ -10,7 +10,7 @@ export default function Footer() {
         </div>
         <div>
           <a href="/">
-            <i class="fab fa-facebook-square"></i>
+            <i className="fab fa-facebook-square"></i>
           </a>
           <a href="/">
             <i className="fab fa-instagram-square"></i>
@@ -44,17 +44,17 @@ export default function Footer() {
         <div>
           <h4>Iletisim</h4>
           <a href="/">
-            <i class="fas fa-location-dot"></i> Adres
+            <i className="fas fa-location-dot"></i> Adres
           </a>
           <a href="/">
-            <i class="fas fa-phone"></i> Irtibat
+            <i className="fas fa-phone"></i> Irtibat
           </a>
           <a href="/">
-            <i class="fas fa-envelope"></i> Mail
+            <i className="fas fa-envelope"></i> Mail
           </a>
           <a href="/">
             {" "}
-            <i class="fas fa-clock"></i> Calisma Saatlerimiz
+            <i className="fas fa-clock"></i> Calisma Saatlerimiz
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import "./navbar.css";
 import { menuItems } from "./menuItems";
+import logo from "../assets/mrc-logo-removebg.png";
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -10,6 +11,9 @@ export default function Navbar() {
   return (
     <nav className="navbar-items">
       <h1 className="navbar-logo">MRC</h1>
+      {/* <div className="navbar-logo">
+        <img src={logo} alt="logo" />
+      </div> */}
       <div className="menu-icons" onClick={handleClick}>
         <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
       </div>

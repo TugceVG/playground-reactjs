@@ -21,6 +21,13 @@
   cursor: pointer;
 }
 
+/* .navbar-logo {
+  height: 80px;
+  width: 80px;
+  background-color: black;
+  border-radius: 50%;
+} */
+
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(7, auto);
