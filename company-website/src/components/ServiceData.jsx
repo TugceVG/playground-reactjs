@@ -32,6 +32,8 @@ const services = [
   },
 ];
 
+// classname=> trip=service, t-card=service-card, t-image=service-image tripcard=serviceCardContainer
+
 export default function ServiceData() {
   return (
     <div className="service">
