@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import QUESTIONS from "../questions";
 import quizCompletedImg from "../assets/quiz-complete.png";
@@ -9,7 +9,7 @@ export default function Quiz() {
   const activeQuestionIndex = userAnswers.length;
   const quizISComplete = activeQuestionIndex === QUESTIONS.length;
 
-  const handleSelectAnswer = useCallBack(function handleSelectAnswer(
+  const handleSelectAnswer = useCallback(function handleSelectAnswer(
     selectedAnswer
   ) {
     setUserAnswers((prevUserAnswers) => {
