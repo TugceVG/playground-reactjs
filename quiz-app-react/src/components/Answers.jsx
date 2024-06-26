@@ -7,6 +7,7 @@ export default function Answers({
   onSelect,
 }) {
   let shuffledAnswers = useRef();
+
   if (!shuffledAnswers.current) {
     shuffledAnswers.current = [...answers];
     shuffledAnswers.current.sort(() => Math.random() - 0.5);
