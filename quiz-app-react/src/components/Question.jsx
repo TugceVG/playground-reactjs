@@ -37,7 +37,7 @@ export default function Question({ index, onSelectAnswer, onSkipAnswer }) {
         answers={QUESTIONS[index].answers}
         selectedAnswer={answer.selectedAnswer}
         answerState={answerState}
-        onSelect={onSelectAnswer}
+        onSelect={handleSelectAnswer}
       />
     </div>
   );
