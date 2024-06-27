@@ -1,14 +1,15 @@
 import { useCallback, useState } from "react";
 
 import QUESTIONS from "../questions";
-import quizCompletedImg from "../assets/quiz-complete.png";
+
 import Question from "./Question";
+import Summary from "./Summary";
 
 export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState([]);
 
   const activeQuestionIndex = userAnswers.length;
-  const quizISComplete = activeQuestionIndex === QUESTIONS.length;
+  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback(function handleSelectAnswer(
     selectedAnswer
@@ -24,13 +25,8 @@ export default function Quiz() {
     [handleSelectAnswer]
   );
 
-  if (quizISComplete) {
-    return (
-      <div id="summary">
-        <img src={quizCompletedImg} alt="Trophy icon" />
-        <h2>Quiz Completed!</h2>
-      </div>
-    );
+  if (quizIsComplete) {
+    return <Summary userAnswers={userAnswers} />;
   }
 
   return (
